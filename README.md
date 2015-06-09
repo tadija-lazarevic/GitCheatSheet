@@ -44,6 +44,9 @@ CheatSheat for GIT
 
 **Branching**
 
+	git fatch
+	git checkout -b [branch_name]					   #fetch-uje novi branch i ulazi u taj branch
+
 	git branch                                         #pokazuje trenutni branch
 	git branch -v                                      #pokazuje zadnji komit na trenutnom branchu     
 	git branch --all                                   #izlistava sve branch-ove (lokalno i na serveru)
@@ -58,6 +61,7 @@ CheatSheat for GIT
 
 	git merge [branch_name]                            #merge-ujem [branch_name] sa masterom
 	git diff master [branch_name]                      #proverim da li postoje razlike (ne bi trebalo)
+
 
 
 **Conflict**
