@@ -74,6 +74,7 @@ CheatSheat for GIT
 	git checkout -- [file_name]                        #diskarduje promene u fajlu lokalnog repozitorijuma
 	git reset --hard HEAD                              #diskarduje promene svih fajlova
 	git revert b53b3c796b6fdd3e7a02ef06a2e1035db743c137         #revert komit - vraca komit koji je greskom otisao
+	git rm --cached [file_name]						   #fajl postaje untracked	
 
 
 **Diff**
