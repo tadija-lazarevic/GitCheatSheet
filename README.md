@@ -6,6 +6,11 @@ CheatSheat for GIT
 	git init
 	git add . 
 
+**gitignore**											#dodavanje gitignore fajla posle komita
+
+	git rm -r --cached .
+	git add .
+	git commit -m ".gitignore is now working"
 
 **Create - from existing directory**
 
@@ -45,7 +50,7 @@ CheatSheat for GIT
 **Branching**
 
 	git fatch
-	git checkout -b [branch_name]					   #fetch-uje novi branch i ulazi u taj branch
+	git checkout [branch_name]					   #fetch-uje novi branch i ulazi u taj branch
 
 	git branch                                         #pokazuje trenutni branch
 	git branch -v                                      #pokazuje zadnji komit na trenutnom branchu     
