@@ -75,6 +75,7 @@ CheatSheat for GIT
 	git reset --hard                                   #brise staged i promene u direktorijumu
 	git clean -f -d                                    #brise untracked fajlove
 	git log                                            #poslednji komitovi u lokalnom repozitorijumu
+	git diff --name-only --diff-filter=U 			   #Izlistava sve fajlove koji imaju konflikte
 
 
 **Undo**
@@ -105,7 +106,8 @@ CheatSheat for GIT
 	git stash list                                     #lista sve stash 
 	git stash apply stash@{0}                          #vraca odredjeni stash
 	git stash drop stash@{0}                           #brise odredjeni stash, kad ni jedan nije zadat brise zadnji      
-
+	git stash show -p stash@{0}						   #prikazuje sta je u stash-u
+    git diff --name-only --diff-filter=U               #fajlovi koji su izmenjeni posle stash apply
 
 **Tags**
 
