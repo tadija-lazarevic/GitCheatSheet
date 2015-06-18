@@ -45,6 +45,7 @@ CheatSheat for GIT
 	git fetch                                          #sinhronizuje promene mog lokalong repo sa live verzijom
 	git pull                                           #povlaci sve promene sa origin repo-a
 	git pull origin/[branch_name]                      #povlaci sve promene sa remote branch-a
+	git fetch origin development:development		   #puluje branch devel sa mastera u lokalni devel branch
 
 
 **Branching**
