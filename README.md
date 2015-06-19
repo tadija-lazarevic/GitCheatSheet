@@ -12,51 +12,38 @@ CheatSheat for GIT
 	git add .
 	git commit -m ".gitignore is now working"
 
-**Create - from existing directory**
+**Clone**
 
 	git clone ~/existing_repo ~/new/repo
 	git clone git://host.org/project.git
 	git clone ssh://user@host.org/project.git
-
-
-
-**Clone**
-
-	git clone [url]                                      #klonira ceo projekat, pulluje najnoviju verziju
+	
+	git clone [url]                                      #klonira ceo projekat, pulluje najnoviju verziju u folder tog projekta (stoji na kraju url-a)
 	git clone [url] myFolder                             #klonira ceo projekat u myFolder
-	git pull                                             #radi isto sto i git fetch&&git pull - ali u jednoj komandi - sinhronizuje lokalni sa originom
- 
+	
+ 	
 
 **Add**
 
-	git add -u                                           #dodaje samo modifikovane fajlove
 	git add .                                            #dodaje sve fajlove
- 
-
-**Remote**
-
-	git clone -o [origin_name]                         #menja default remote name(origin) u [origin_name] --retko se menja
-	git remote show origin                             #prikazuje sve remote branch-ove
+ 	git add -v 										     #verbose
 
 
-**Fetch**
+**Fetch && Pull**
 
-	git fetch origin                                   #sinhronizuje moj master branch sa live verzijom
-	git fetch                                          #sinhronizuje promene mog lokalong repo sa live verzijom
-	git pull                                           #povlaci sve promene sa origin repo-a
+	git fetch                                          #dovlaci sve brancheve i/ili tagove (zajedno cine "refs"), apdejtuje sve trekovane brancheve
+	git pull                                           #povlaci sve izmene sa remote repozitorijuma u moj trenutni branch
 	git pull origin/[branch_name]                      #povlaci sve promene sa remote branch-a
-	git fetch origin development:development		   #puluje branch devel sa mastera u lokalni devel branch
+
 
 
 **Branching**
 
-	git fatch
-	git checkout [branch_name]					   #fetch-uje novi branch i ulazi u taj branch
-
+	git remote show origin                             #izlistava sve remote branch-ove
+	git checkout -b [branch_name]					   #pravi novi branch i prelazi u taj branch
 	git branch                                         #pokazuje trenutni branch
 	git branch -v                                      #pokazuje zadnji komit na trenutnom branchu     
-	git branch --all                                   #izlistava sve branch-ove (lokalno i na serveru)
-	git checkout -b [branch_name]                 	   #pravi novi branch i menja trenutni branch u napravljeni
+	git branch --all                                   #izlistava sve branch-ove (lokalno i remote)
 	git push origin [branch_name]                  	   #push-uje lokalni branch na origin remote server
 	git push origin --delete [branch_name]    		   #brise branch sa remote servera
 	git branch -d [branch_name]                        #brise branch lokalno
@@ -65,27 +52,35 @@ CheatSheat for GIT
 
 **Merging**
 
+	git checkout master 							   #prelazim u master branch
 	git merge [branch_name]                            #merge-ujem [branch_name] sa masterom
-	git diff master [branch_name]                      #proverim da li postoje razlike (ne bi trebalo)
+	git push origin master 							   #posle merge obavezno push na master
 
 
 
-**Conflict**
+**Status**
+
 
 	git status                                         #izlistava fajlove koji nisu merged
-	git reset --hard                                   #brise staged i promene u direktorijumu
-	git clean -f -d                                    #brise untracked fajlove
-	git log                                            #poslednji komitovi u lokalnom repozitorijumu
+	git status -uno                                    #ne prikazuje untracked fajlove (git status --untracked-files=no)
+	git log                                            #poslednji komit u lokalnom repozitorijumu
 	git diff --name-only --diff-filter=U 			   #Izlistava sve fajlove koji imaju konflikte
+	git ls-files . 									   #izlistava sve fajlove u repou
+	git ls-files . --ignored --exclude-standard --others	#izlistava git-ignored fajlove
+	git ls-files . --exclude-standard --others		   #izlistava untrekovane fajlove
+	git clean -f -d                                    #brise untracked fajlove
 
 
 **Undo**
 
-	git reset HEAD [file_name]                         #diskarduje komit ali promene u fajlu i dalje ostaju
-	git checkout -- [file_name]                        #diskarduje promene u fajlu lokalnog repozitorijuma
-	git reset --hard HEAD                              #diskarduje promene svih fajlova
+	git reset										   #undo posle git add .
+	git reset --soft HEAD^							   #undo posle git commit -m 'update'
+	git reset HEAD [file_name]                         #undo posle git add [file_name] - undo posle dodavanja jednog fajla
+	git checkout -- [file_name]                        #diskarduje izmene u jednom fajlu 
+	git checkout -- . 								   #diskarduje izmene u svim fajlovima
 	git revert b53b3c796b6fdd3e7a02ef06a2e1035db743c137         #revert komit - vraca komit koji je greskom otisao
 	git rm --cached [file_name]						   #fajl postaje untracked	
+
 
 
 **Diff**
@@ -98,7 +93,7 @@ CheatSheat for GIT
 	git log --oneline fixing_bugs_23-05-2015 ^master   #razlika komitova izmedju dva branch-a
 	git log --oneline fixing_bugs_23-05-2015..master   #isto sto i iznad
 	git diff -R                                        #diff reversed
-
+    
 
 **Stash**
 
@@ -116,8 +111,6 @@ CheatSheat for GIT
 	git push origin Release-0.0.1                                           #pushuje odredjeni tag na origin remote
 
 
-**Status**
 
-	git status -uno                                     #ne prikazuje untracked fajlove (git status --untracked-files=no)
 
 
