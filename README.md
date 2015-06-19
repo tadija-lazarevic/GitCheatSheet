@@ -1,4 +1,6 @@
-CheatSheat for GIT
+**CheatSheat for GIT**
+
+
 
 **Create - from existing data**
 
@@ -6,11 +8,7 @@ CheatSheat for GIT
 	git init
 	git add . 
 
-**gitignore**											#dodavanje gitignore fajla posle komita
 
-	git rm -r --cached .
-	git add .
-	git commit -m ".gitignore is now working"
 
 **Clone**
 
@@ -32,28 +30,28 @@ CheatSheat for GIT
 **Fetch && Pull**
 
 	git fetch                                          #povlaci sve brencheve i/ili tagove (zajedno cine "refs"), apdejtuje sve trekovane brencheve
-	git pull                                           #povlaci sve izmene sa remote repozitorijuma u moj trenutni branch
-	git pull origin/[branch_name]                      #povlaci sve promene sa remote branch-a
+	git pull                                           #povlaci sve izmene sa remote repozitorijuma u moj trenutni brench
+	git pull origin/[brench_name]                      #povlaci sve izmene sa remote brencha u odredjeni lokalni brench
 
 
 
-**Branching**
+**brenching**
 
-	git remote show origin                             #izlistava sve remote branch-ove
-	git checkout -b [branch_name]					   #pravi novi branch i prelazi u taj branch
-	git branch                                         #pokazuje trenutni branch
-	git branch -v                                      #pokazuje zadnji komit na trenutnom branchu     
-	git branch --all                                   #izlistava sve branch-ove (lokalno i remote)
-	git push origin [branch_name]                  	   #pushuje lokalni branch na origin remote server
-	git push origin --delete [branch_name]    		   #brise branch sa remote servera
-	git branch -d [branch_name]                        #brise branch lokalno
-	git branch --merged                                #pokazuje branch-ove koji su merged
-	git branch --no-merged                             #pokazuje branch-ove koji jos nisu merged
+	git remote show origin                             #lista sve remote brencheve
+	git checkout -b [brench_name]					   #pravi novi brench i prelazi u taj brench
+	git brench                                         #pokazuje trenutni brench
+	git brench -v                                      #pokazuje zadnji komit na trenutnom brenchu     
+	git brench --all                                   #lista sve brench-ove (lokalno i remote)
+	git push origin [brench_name]                  	   #pushuje lokalni brench na origin remote server
+	git push origin --delete [brench_name]    		   #brise brench sa remote servera
+	git brench -d [brench_name]                        #brise brench lokalno
+	git brench --merged                                #pokazuje brench-ove koji su merged
+	git brench --no-merged                             #pokazuje brench-ove koji jos nisu merged
 
 **Merging**
 
-	git checkout master 							   #prelazim u master branch
-	git merge [branch_name]                            #merge-ujem [branch_name] sa masterom
+	git checkout master 							   #prelazim u master brench
+	git merge [brench_name]                            #merge-ujem [brench_name] sa masterom
 
 
 **Status**
@@ -82,12 +80,12 @@ CheatSheat for GIT
 
 	git diff --name-only --diff-filter=U 			   #lista sve fajlove koji imaju konflikte posle stash-a
 	git diff master master/origin                      #razlike izmedju lokalnog mastera i origin mastera
-	git log --graph  --decorate                        #graph branchova i komitova
-	git diff [branch_name] [branch_name]               #razlike izmedju dva brencha
-	git diff --name-only  [branch_name] [branch_name]  #razlike izmedju dva brencha samo fajlovi
-	git diff [local_branch] [origin/remote_branch]     #razlika izmedju lokalnog i remote branch-a
-	git log --oneline [branch_name] ^master   		   #razlika komitova izmedju dva branch-a
-	git log --oneline [branch_name]..master            #isto sto i iznad
+	git log --graph  --decorate                        #graph brenchova i komitova
+	git diff [brench_name] [brench_name]               #razlike izmedju dva brencha
+	git diff --name-only  [brench_name] [brench_name]  #razlike izmedju dva brencha samo fajlovi
+	git diff [local_brench] [origin/remote_brench]     #razlika izmedju lokalnog i remote brench-a
+	git log --oneline [brench_name] ^master   		   #razlika komitova izmedju dva brench-a
+	git log --oneline [brench_name]..master            #isto sto i iznad
 	git diff -R                                        #diff reverzno
     
 
@@ -100,6 +98,15 @@ CheatSheat for GIT
 	git stash drop stash@{0}                           #brise odredjeni stash, (kad ni jedan nije zadat brise zadnji)
 	git stash show -p stash@{0}						   #prikazuje sta je u stash-u
     
+
+
+**gitignore**											#dodavanje gitignore fajla posle komita
+
+	git rm -r --cached .
+	git add .
+	git commit -m ".gitignore is now working"
+
+
 
 **Tags**
 
