@@ -31,7 +31,7 @@ CheatSheat for GIT
 
 **Fetch && Pull**
 
-	git fetch                                          #dovlaci sve brancheve i/ili tagove (zajedno cine "refs"), apdejtuje sve trekovane brancheve
+	git fetch                                          #povlaci sve brencheve i/ili tagove (zajedno cine "refs"), apdejtuje sve trekovane brencheve
 	git pull                                           #povlaci sve izmene sa remote repozitorijuma u moj trenutni branch
 	git pull origin/[branch_name]                      #povlaci sve promene sa remote branch-a
 
@@ -44,7 +44,7 @@ CheatSheat for GIT
 	git branch                                         #pokazuje trenutni branch
 	git branch -v                                      #pokazuje zadnji komit na trenutnom branchu     
 	git branch --all                                   #izlistava sve branch-ove (lokalno i remote)
-	git push origin [branch_name]                  	   #push-uje lokalni branch na origin remote server
+	git push origin [branch_name]                  	   #pushuje lokalni branch na origin remote server
 	git push origin --delete [branch_name]    		   #brise branch sa remote servera
 	git branch -d [branch_name]                        #brise branch lokalno
 	git branch --merged                                #pokazuje branch-ove koji su merged
@@ -54,21 +54,18 @@ CheatSheat for GIT
 
 	git checkout master 							   #prelazim u master branch
 	git merge [branch_name]                            #merge-ujem [branch_name] sa masterom
-	git push origin master 							   #posle merge obavezno push na master
-
 
 
 **Status**
 
 
-	git status                                         #izlistava fajlove koji nisu merged
+	git status                                         #lista fajlove koji nisu merged
 	git status -uno                                    #ne prikazuje untracked fajlove (git status --untracked-files=no)
-	git log                                            #poslednji komit u lokalnom repozitorijumu
-	git diff --name-only --diff-filter=U 			   #Izlistava sve fajlove koji imaju konflikte
-	git ls-files . 									   #izlistava sve fajlove u repou
-	git ls-files . --ignored --exclude-standard --others	#izlistava git-ignored fajlove
-	git ls-files . --exclude-standard --others		   #izlistava untrekovane fajlove
-	git clean -f -d                                    #brise untracked fajlove
+	git log                                            #lista komitova
+	git ls-files . 									   #lista sve fajlove u repou
+	git ls-files . --ignored --exclude-standard --others	#lista git-ignored fajlove
+	git ls-files . --exclude-standard --others		   #lista untrekovane fajlove
+	git clean -fd                                      #brise untracked fajlove
 
 
 **Undo**
@@ -78,21 +75,20 @@ CheatSheat for GIT
 	git reset HEAD [file_name]                         #undo posle git add [file_name] - undo posle dodavanja jednog fajla
 	git checkout -- [file_name]                        #diskarduje izmene u jednom fajlu 
 	git checkout -- . 								   #diskarduje izmene u svim fajlovima
-	git revert b53b3c796b6fdd3e7a02ef06a2e1035db743c137         #revert komit - vraca komit koji je greskom otisao
-	git rm --cached [file_name]						   #fajl postaje untracked	
-
+	git revert b53b3c796b6fdd3e7a02e		           #revert komit - vraca komit koji je greskom otisao (list svih komitova git log)
 
 
 **Diff**
 
+	git diff --name-only --diff-filter=U 			   #lista sve fajlove koji imaju konflikte posle stash-a
 	git diff master master/origin                      #razlike izmedju lokalnog mastera i origin mastera
-	git log --graph  --decorate                        #ispisuje log komitova
-	git diff [branch_name] [branch_name]               #razlike izmedju dva branch-a
-	git diff --name-only  [branch_name] [branch_name]  #pokazuje samo izmenjene fajlove
+	git log --graph  --decorate                        #graph branchova i komitova
+	git diff [branch_name] [branch_name]               #razlike izmedju dva brencha
+	git diff --name-only  [branch_name] [branch_name]  #razlike izmedju dva brencha samo fajlovi
 	git diff [local_branch] [origin/remote_branch]     #razlika izmedju lokalnog i remote branch-a
-	git log --oneline fixing_bugs_23-05-2015 ^master   #razlika komitova izmedju dva branch-a
-	git log --oneline fixing_bugs_23-05-2015..master   #isto sto i iznad
-	git diff -R                                        #diff reversed
+	git log --oneline [branch_name] ^master   		   #razlika komitova izmedju dva branch-a
+	git log --oneline [branch_name]..master            #isto sto i iznad
+	git diff -R                                        #diff reverzno
     
 
 **Stash**
@@ -100,14 +96,14 @@ CheatSheat for GIT
 	git stash                                          #sacuva sve izmene i vraca u najnoviju komitovanu verziju
 	git stash save "Poruka"                            #isto sto i ovo gore samo sa deskriptivnom porukom
 	git stash list                                     #lista sve stash 
-	git stash apply stash@{0}                          #vraca odredjeni stash
-	git stash drop stash@{0}                           #brise odredjeni stash, kad ni jedan nije zadat brise zadnji      
+	git stash apply stash@{0}                          #vraca stash@{0}
+	git stash drop stash@{0}                           #brise odredjeni stash, (kad ni jedan nije zadat brise zadnji)
 	git stash show -p stash@{0}						   #prikazuje sta je u stash-u
-    git diff --name-only --diff-filter=U               #fajlovi koji su izmenjeni posle stash apply
+    
 
 **Tags**
 
-	git tag Release-0.0.1 -m "Release of Software on May 22"                #dodaje tag koji oznacava verziju software-a
+	git tag Release-0.0.1 -m "Release of Software on May 22"                #dodaje odredjeni tag 
 	git push origin Release-0.0.1                                           #pushuje odredjeni tag na origin remote
 
 
