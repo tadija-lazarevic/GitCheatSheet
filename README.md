@@ -108,13 +108,14 @@
 	git commit -m ".gitignore is now working"
 
 
+**Remove files from repo**
+
+	git rm --cached [file_name]						   #brise fajl iz repozitorijuma, ne i fizicki
+	git rm --cached -r [dir_name]					   #brise direktorijum iz repozitorijuma, ne i fizicki
+
 
 **Tags**
 
 	git tag Release-0.0.1 -m "Release of Software on May 22"                #dodaje odredjeni tag 
 	git push origin Release-0.0.1                                           #pushuje odredjeni tag na origin remote
-
-
-
-
 
