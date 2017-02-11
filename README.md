@@ -2,6 +2,12 @@
 
 
 
+**Config - setup git**
+
+	git config --global user.name "Username"
+	git config --global user.email "some@email.com"
+	
+
 **Create - from existing data**
 
 	cd ~/my_project_directory
