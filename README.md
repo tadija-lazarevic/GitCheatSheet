@@ -105,7 +105,7 @@
 	git stash apply stash@{0}                          #vraca stash@{0}
 	git stash drop stash@{0}                           #brise odredjeni stash, (kad ni jedan nije zadat brise zadnji)
 	git stash show -p stash@{0}			   #prikazuje sta je u stash-u
-        git diff stash@{0}  				   #razlike u stashu
+	git diff stash@{0}  				   #razlike u stashu
 
 
 **gitignore**											#dodavanje gitignore fajla posle komita
