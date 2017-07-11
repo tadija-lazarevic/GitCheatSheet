@@ -54,6 +54,7 @@
 	git brench -d [brench_name]                        #brise brench lokalno
 	git brench --merged                                #pokazuje brench-ove koji su merged
 	git brench --no-merged                             #pokazuje brench-ove koji jos nisu merged
+	git remote update origin --prune                   #update-uje branch listu i remote i lokalno
 
 **Merging**
 
