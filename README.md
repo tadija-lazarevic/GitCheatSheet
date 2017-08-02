@@ -86,7 +86,7 @@
 **Reset current branch to be as remote master**
 
 	git fetch origin
-        git reset --hard origin/master
+	git reset --hard origin/master
 
 
 **Diff**
