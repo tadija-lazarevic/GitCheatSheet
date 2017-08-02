@@ -83,6 +83,11 @@
 	git checkout -- . 				   #diskarduje izmene u svim fajlovima
 	git revert b53b3c796b6fdd3e7a02e		   #revert komit - vraca komit koji je greskom otisao (list svih komitova git log)
 
+**Reset current branch to be as remote master**
+
+	git fetch origin
+        git reset --hard origin/master
+
 
 **Diff**
 
